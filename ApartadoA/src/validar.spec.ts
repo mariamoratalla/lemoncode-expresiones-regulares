@@ -1,6 +1,6 @@
-import { estaBienFormadoElIBAN } from "./validar";
+import { estaBienFormadoElIban } from "./validar";
 
-describe("estaBienFormadoElIBAN", () => {
+describe("estaBienFormadoElIban", () => {
   it.each([
     ["ES21 0081 1098 08 1234567890", true],
     ["ES2100811098081234567890", true],
@@ -11,7 +11,7 @@ describe("estaBienFormadoElIBAN", () => {
   ])(
     "debería devolver para el iban %s el valor %s",
     (iban: string, expected: boolean) => {
-      expect(estaBienFormadoElIBAN(iban)).toBe(expected);
+      expect(estaBienFormadoElIban(iban)).toBe(expected);
     }
   );
 });
