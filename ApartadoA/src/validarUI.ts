@@ -1,4 +1,4 @@
-import { estaBienFormadoElIban, validarInfoIban } from "./validar";
+import { estaBienFormadoElIban, infoIbanConNombreBanco } from "./validar";
 import { IbanInfo } from "./validar.model";
 import { bancos } from "./validar.model";
 
@@ -17,39 +17,43 @@ const numeroCuenta = document.getElementById(
 ) as HTMLParagraphElement;
 const boton = document.getElementById("comprobar-button") as HTMLButtonElement;
 
-const mostrarMensaje = (parrafo: HTMLElement, mensaje: string) => {
+const mostrarUnMensaje = (parrafo: HTMLElement, mensaje: string) => {
   parrafo.innerHTML = mensaje;
 };
 
-const mensajes = (infoIban: IbanInfo | void) => {
+const mostrarTodosMensajes = (infoIban: IbanInfo | void) => {
   if (infoIban) {
-    mostrarMensaje(bienFormado, "El IBAN está bien formado");
-    mostrarMensaje(validez, "El IBAN es válido");
-    mostrarMensaje(banco, `Banco: ${infoIban.nombreBanco}`);
-    mostrarMensaje(sucursal, `Código sucursal: ${infoIban.sucursal}`);
-    mostrarMensaje(
+    mostrarUnMensaje(bienFormado, "El IBAN está bien formado");
+    mostrarUnMensaje(validez, "El IBAN es válido");
+    mostrarUnMensaje(banco, `Banco: ${infoIban.nombreBanco}`);
+    mostrarUnMensaje(sucursal, `Código sucursal: ${infoIban.sucursal}`);
+    mostrarUnMensaje(
       digitoControl,
       `Dígito de control: ${infoIban.digitoControl}`
     );
-    mostrarMensaje(numeroCuenta, `Número de cuenta: ${infoIban.numeroCuenta}`);
+    mostrarUnMensaje(
+      numeroCuenta,
+      `Número de cuenta: ${infoIban.numeroCuenta}`
+    );
   } else {
-    mostrarMensaje(validez, "El IBAN no es válido");
-    mostrarMensaje(banco, "");
-    mostrarMensaje(sucursal, "");
-    mostrarMensaje(digitoControl, "");
-    mostrarMensaje(numeroCuenta, "");
+    mostrarUnMensaje(bienFormado, "");
+    mostrarUnMensaje(validez, "El IBAN no es válido");
+    mostrarUnMensaje(banco, "");
+    mostrarUnMensaje(sucursal, "");
+    mostrarUnMensaje(digitoControl, "");
+    mostrarUnMensaje(numeroCuenta, "");
 
     if (!estaBienFormadoElIban(iban.value)) {
-      mostrarMensaje(bienFormado, "El IBAN no está bien formado");
-      mostrarMensaje(validez, "");
+      mostrarUnMensaje(bienFormado, "El IBAN no está bien formado");
+      mostrarUnMensaje(validez, "");
     }
   }
 };
 
 const handleClick = () => {
   const numeroIban = iban.value;
-  const infoIban = validarInfoIban(numeroIban, bancos);
-  mensajes(infoIban);
+  const infoIban = infoIbanConNombreBanco(numeroIban, bancos);
+  mostrarTodosMensajes(infoIban);
 };
 
 export const content = () => {

@@ -46,7 +46,7 @@ export const extraerNombreBanco = (
     : console.error("No se ha encontrado ningún banco");
 };
 
-export const validarInfoIban = (
+export const infoIbanConNombreBanco = (
   iban: string,
   bancos: Banco[]
 ): IbanInfo | void => {
