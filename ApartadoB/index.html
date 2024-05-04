@@ -4,11 +4,19 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <title>Extraer imágenes</title>
   </head>
   <body>
-    <div id="app">
-      <h1>TypeScript Sandbox</h1>
+    <div class="contenedor">
+      <h1>EXTRAER IMÁGENES DE UN HTML</h1>
+      <hr />
+      <p>Pegue su HTML aquí:</p>
+      <div class="textarea">
+        <textarea name="" id="texto" cols="30" rows="20"></textarea>
+        <button id="boton-extraer">Extraer imágenes</button>
+      </div>
+      <div class="imagenes-contenedor"></div>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
