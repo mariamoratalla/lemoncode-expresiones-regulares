@@ -4,24 +4,32 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css" />
     <title>Validar IBAN</title>
   </head>
   <body>
-    <h1>VALIDAR IBAN</h1>
-    <div class="introducir-iban">
-      <label for="iban">Introduzca el IBAN</label>
-      <div>
-        <input type="text" id="iban" />
-        <button id="comprobar-button">Comprobar</button>
+    <div class="contenedor">
+      <h1>VALIDAR IBAN</h1>
+      <hr />
+      <div class="introducir-iban">
+        <label for="iban"><strong>Introduzca el IBAN:</strong></label>
+        <div>
+          <input
+            type="text"
+            id="iban"
+            placeholder="Ej: ES6621000418401234567891"
+          />
+          <button id="comprobar-button">Comprobar</button>
+        </div>
       </div>
-    </div>
-    <div class="info">
-      <p id="bien-formado"></p>
-      <p id="validez"></p>
-      <p id="banco"></p>
-      <p id="sucursal"></p>
-      <p id="digito-control"></p>
-      <p id="numero-cuenta"></p>
+      <div class="info">
+        <p id="bien-formado"></p>
+        <p id="validez"></p>
+        <p id="banco"></p>
+        <p id="sucursal"></p>
+        <p id="digito-control"></p>
+        <p id="numero-cuenta"></p>
+      </div>
     </div>
     <script type="module" src="./src/main.ts"></script>
   </body>
