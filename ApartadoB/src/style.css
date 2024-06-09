@@ -23,7 +23,7 @@ body {
   background-color: #845ec2;
   color: white;
   cursor: pointer;
-  font-family: "Ubuntu Sans", sans-serif;
+  font-family: inherit;
   font-weight: 500;
 }
 
