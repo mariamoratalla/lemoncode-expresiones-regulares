@@ -7,6 +7,11 @@ body {
   justify-content: center;
 }
 
+.contenedor {
+  max-width: 800px;
+  width: 100%;
+}
+
 .textarea {
   display: flex;
   flex-direction: column;
@@ -25,6 +30,7 @@ body {
   cursor: pointer;
   font-family: inherit;
   font-weight: 500;
+  margin-bottom: 16px;
 }
 
 #boton-extraer:hover {
@@ -34,4 +40,13 @@ body {
 .imagenes-contenedor {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.imagen {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
 }

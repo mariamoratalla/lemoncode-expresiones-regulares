@@ -1,5 +1,5 @@
 export const extraerImagenes = (html: string): string[] => {
-  const patron = /<img[^>]*src="([^"]*)">/gm;
+  const patron = /<img[^>]*src="([^"]*)"/gm;
   let coincidencia = patron.exec(html);
   const imagenes = [];
 

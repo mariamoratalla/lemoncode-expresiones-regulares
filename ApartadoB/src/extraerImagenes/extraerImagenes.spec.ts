@@ -1,11 +1,11 @@
-import { extraerImagenes } from "./mostrarImagenes";
+import { extraerImagenes } from "./extraerImagenes";
 
 describe("extraerImagenes", () => {
   it("debería devolver un array con el enlace de las imágenes", () => {
     // Arrange
     const html =
-      '<img src="https://example.com/image1.jpg">' +
-      '<img src="https://example.com/image2.jpg">';
+      'mdfgf <img src="https://example.com/image1.jpg"> asfsdfds' +
+      ' sfsd <img src="https://example.com/image2.jpg">';
     // Act
     const resultado = extraerImagenes(html);
     // Assert
