@@ -25,10 +25,16 @@ export const handleClick = () => {
     if (imagenesContenedor && imagenesContenedor instanceof HTMLDivElement) {
       imagenesContenedor.innerHTML = "";
 
-      imagenes.forEach((src) => {
-        const imgElement = crearImagen(src);
-        imagenesContenedor.appendChild(imgElement);
-      });
+      if (extraerImagenes(htmlValue).length <= 0) {
+        const mensaje = document.createElement("p");
+        mensaje.innerHTML = "No se han encontrado imágenes";
+        imagenesContenedor?.appendChild(mensaje);
+      } else {
+        imagenes.forEach((src) => {
+          const imgElement = crearImagen(src);
+          imagenesContenedor.appendChild(imgElement);
+        });
+      }
     }
   }
 };
