@@ -31,13 +31,13 @@ export const handleClick = () => {
     if (imagenesContenedor && imagenesContenedor instanceof HTMLDivElement) {
       imagenesContenedor.innerHTML = "";
 
-      if (extraerImagenes(htmlValue).length <= 0) {
-        crearMensaje(imagenesContenedor, "No se han encontrado imágenes");
-      } else {
+      if (extraerImagenes(htmlValue).length > 0) {
         imagenes.forEach((src) => {
           const imgElement = crearImagen(src);
           imagenesContenedor.appendChild(imgElement);
         });
+      } else {
+        crearMensaje(imagenesContenedor, "No se han encontrado imágenes");
       }
     }
   }
