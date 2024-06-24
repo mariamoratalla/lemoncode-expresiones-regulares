@@ -9,6 +9,12 @@ const crearImagen = (src: string): HTMLImageElement => {
   return imagen;
 };
 
+const crearMensaje = (contenedor: HTMLDivElement, texto: string) => {
+  const parrafo = document.createElement("p");
+  parrafo.innerHTML = texto;
+  contenedor.appendChild(parrafo);
+};
+
 export const handleClick = () => {
   //Obtener el valor del textarea
   const html = document.getElementById("texto");
@@ -26,9 +32,7 @@ export const handleClick = () => {
       imagenesContenedor.innerHTML = "";
 
       if (extraerImagenes(htmlValue).length <= 0) {
-        const mensaje = document.createElement("p");
-        mensaje.innerHTML = "No se han encontrado imágenes";
-        imagenesContenedor?.appendChild(mensaje);
+        crearMensaje(imagenesContenedor, "No se han encontrado imágenes");
       } else {
         imagenes.forEach((src) => {
           const imgElement = crearImagen(src);
